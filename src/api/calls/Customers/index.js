@@ -2,7 +2,8 @@
 const endpoints = {
   allCustomers: 'http://127.0.0.1:8000/api/customer/index/',
   login: 'http://127.0.0.1:8000/api/customer/login',
-  logout: 'http://127.0.0.1:8000/api/customer/logout/'
+  logout: 'http://127.0.0.1:8000/api/customer/logout/',
+  register: 'http://127.0.0.1:8000/api/customer/register/'
 };
 
 /**
@@ -54,6 +55,32 @@ async function getAllCustomers() {
   return result;
 }
 
+
+/**
+ *
+ */
+ async function customerRegister(fields) {
+  const requestOptions = {
+    method: 'POST',
+    headers: { 
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'    },
+    body: JSON.stringify(fields)
+  };
+
+  let result = await fetch(endpoints.register, requestOptions)
+    .then(response => 
+      response.json()
+    )
+
+    // Error
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+
+  return result;
+}
+
 /**
  * 
  */
@@ -84,5 +111,6 @@ async function getAllCustomers() {
 export default {
   getAllCustomers,
   customerLogin,
-  customerLogout
+  customerLogout,
+  customerRegister
 }

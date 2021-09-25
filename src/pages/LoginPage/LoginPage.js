@@ -1,6 +1,6 @@
 // Libraries
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 
 // Components
 import Form from "react-bootstrap/Form";
@@ -94,8 +94,9 @@ function LoginPage() {
           disabled={!validateForm()}
         >
           Submit
-        </Button>
+        </Button> 
       </Form>
+      <p className="mt-3">Don't have an account? <Link to="/register">Sign Up</Link></p>
     </div>
   );
 }

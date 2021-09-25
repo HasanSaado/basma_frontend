@@ -9,6 +9,7 @@ import {
 // Pages
 import { LoginPage } from './pages/LoginPage';
 import { DashboardPage } from './pages/DashboardPage';
+import { RegisterPage } from './pages/RegisterPage';
 
 // Style
 import './App.css';
@@ -27,6 +28,12 @@ function App() {
             path="/"
             exact
             component={LoginPage}
+          />
+
+          <Route
+            path="/register"
+            exact
+            component={RegisterPage}
           />
 
           <PrivateRoute
